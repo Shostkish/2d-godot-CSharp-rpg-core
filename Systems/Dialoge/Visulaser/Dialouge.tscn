@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bbqgvqxoyigew"]
 
 [ext_resource type="Texture2D" uid="uid://dteqcrtl68al8" path="res://Systems/Dialoge/Visulaser/interfaceTexture.png" id="1_cvwv3"]
+[ext_resource type="FontFile" uid="uid://d3mhar5x16bum" path="res://Systems/Retro Gaming.ttf" id="3_3ef0r"]
 
 [node name="Dialouge" type="CanvasLayer" unique_id=848740949]
 
@@ -10,9 +11,13 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -255.0
+offset_left = 67.0
+offset_top = -251.0
+offset_right = -62.89502
+offset_bottom = -21.0
 grow_horizontal = 2
 grow_vertical = 0
+size_flags_vertical = 4
 texture = ExtResource("1_cvwv3")
 region_rect = Rect2(0, 0, 107, 107)
 patch_margin_left = 5
@@ -28,30 +33,36 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 6.0
-offset_top = 6.0
+offset_top = 9.0
 offset_right = -7.0
-offset_bottom = -6.0
+offset_bottom = -11.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_lock_ = true
 
 [node name="Portrait" type="TextureRect" parent="Window/Content" unique_id=152061489]
-custom_minimum_size = Vector2(220, 220)
+custom_minimum_size = Vector2(190, 190)
+custom_maximum_size = Vector2(190, 190)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+offset_transform_enabled = true
+offset_transform_scale = Vector2(0.885, 0.885)
 texture = ExtResource("1_cvwv3")
+metadata/_edit_lock_ = true
 
 [node name="Text" type="RichTextLabel" parent="Window/Content" unique_id=1056651867]
 texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_font_sizes/normal_font_size = 30
-theme_override_font_sizes/bold_font_size = 30
-theme_override_font_sizes/bold_italics_font_size = 30
-theme_override_font_sizes/italics_font_size = 30
-theme_override_font_sizes/mono_font_size = 30
+theme_override_fonts/normal_font = ExtResource("3_3ef0r")
+theme_override_font_sizes/normal_font_size = 25
+theme_override_font_sizes/bold_font_size = 25
+theme_override_font_sizes/bold_italics_font_size = 25
+theme_override_font_sizes/italics_font_size = 25
+theme_override_font_sizes/mono_font_size = 25
 bbcode_enabled = true
-text = "То є львьів👁️👄👁️"
+metadata/_edit_lock_ = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=902143878]
 
