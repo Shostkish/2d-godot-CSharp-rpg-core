@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="Dialogue" format=3 uid="uid://b40icha88hek"]
+
+[ext_resource type="Resource" uid="uid://dou8mkfh7stgw" path="res://Systems/Dialoge/Database/Characters/GOSHA.tres" id="1_8nq4l"]
+[ext_resource type="Script" uid="uid://3b1opgbrxn8r" path="res://Systems/Dialoge/Database/Resources/Dialogue.cs" id="1_ljcww"]
+[ext_resource type="Script" uid="uid://i6nfvu3kv436" path="res://Systems/Dialoge/Database/Resources/DialogueLine.cs" id="2_yb1w2"]
+[ext_resource type="Script" uid="uid://c1gm6ob5ng08q" path="res://Systems/Dialoge/Database/Resources/ToneModulation.cs" id="3_br7c7"]
+
+[sub_resource type="Resource" id="Resource_gtdgf"]
+script = ExtResource("3_br7c7")
+metadata/_custom_type_script = "uid://c1gm6ob5ng08q"
+
+[sub_resource type="Resource" id="Resource_3crqw"]
+script = ExtResource("2_yb1w2")
+Translations = PackedStringArray("HujHujHuj", "HujHujHuj")
+Character = ExtResource("1_8nq4l")
+Expression = "HujHujHuj"
+tone = SubResource("Resource_gtdgf")
+metadata/_custom_type_script = "uid://i6nfvu3kv436"
+
+[resource]
+script = ExtResource("1_ljcww")
+Lines = [SubResource("Resource_3crqw"), SubResource("Resource_3crqw"), SubResource("Resource_3crqw")]
+metadata/_custom_type_script = "uid://3b1opgbrxn8r"

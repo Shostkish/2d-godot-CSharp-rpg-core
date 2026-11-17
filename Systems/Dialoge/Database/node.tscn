@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c1cefxjwwtbi8"]
+
+[ext_resource type="Script" uid="uid://cqwg1mbm8v5nb" path="res://Systems/Dialoge/Manager/DialogueManager.cs" id="1_0sfw5"]
+
+[node name="Node" type="Node" unique_id=1874837794]
+script = ExtResource("1_0sfw5")
