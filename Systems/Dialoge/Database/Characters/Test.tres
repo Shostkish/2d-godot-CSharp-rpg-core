@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DialogueCharacter" format=3 uid="uid://dou8mkfh7stgw"]
+
+[ext_resource type="Script" uid="uid://3wkhnpb0tya4" path="res://Systems/Dialoge/Database/Resources/DialogueCharacter.cs" id="1_6aifa"]
+
+[resource]
+script = ExtResource("1_6aifa")
+CharacterId = "1"
+DisplayName = "T.e.s.t"
+metadata/_custom_type_script = "uid://3wkhnpb0tya4"
