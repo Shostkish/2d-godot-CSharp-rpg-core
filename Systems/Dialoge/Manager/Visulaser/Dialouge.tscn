@@ -2,10 +2,69 @@
 
 [ext_resource type="Script" uid="uid://b22adgqgi8fvp" path="res://Systems/Dialoge/Manager/Visulaser/DialogueUI.cs" id="1_gc7sv"]
 [ext_resource type="Texture2D" uid="uid://dteqcrtl68al8" path="res://Systems/Dialoge/Manager/Visulaser/interfaceTexture.png" id="1_nkvc8"]
-[ext_resource type="FontFile" uid="uid://d3mhar5x16bum" path="res://Systems/Dialoge/Database/Retro Gaming.ttf" id="2_gc7sv"]
+[ext_resource type="Script" uid="uid://3wkhnpb0tya4" path="res://Systems/Dialoge/Resources/DialogueCharacter.cs" id="2_1vla4"]
+[ext_resource type="FontFile" uid="uid://d3mhar5x16bum" path="res://Systems/Dialoge/Retro Gaming.ttf" id="2_gc7sv"]
+[ext_resource type="Script" uid="uid://cqwg1mbm8v5nb" path="res://Systems/Dialoge/Manager/DialogueManager.cs" id="2_mvega"]
+[ext_resource type="Script" uid="uid://i6nfvu3kv436" path="res://Systems/Dialoge/Resources/DialogueLine.cs" id="3_70alm"]
+[ext_resource type="Script" uid="uid://c1gm6ob5ng08q" path="res://Systems/Dialoge/Resources/ToneModulation.cs" id="4_ir51o"]
+[ext_resource type="Script" uid="uid://3b1opgbrxn8r" path="res://Systems/Dialoge/Resources/Dialogue.cs" id="5_h2ldv"]
+[ext_resource type="AudioStream" uid="uid://djcup5f7v2rus" path="res://Systems/Dialoge/BaseBeep.mp3" id="5_mvega"]
+
+[sub_resource type="Resource" id="Resource_hvahn"]
+script = ExtResource("2_1vla4")
+metadata/_custom_type_script = "uid://3wkhnpb0tya4"
+
+[sub_resource type="Resource" id="Resource_h14dw"]
+script = ExtResource("4_ir51o")
+metadata/_custom_type_script = "uid://c1gm6ob5ng08q"
+
+[sub_resource type="Resource" id="Resource_wu8bp"]
+script = ExtResource("3_70alm")
+Translations = PackedStringArray("Hello!")
+Character = SubResource("Resource_hvahn")
+Expression = "Test"
+tone = SubResource("Resource_h14dw")
+metadata/_custom_type_script = "uid://i6nfvu3kv436"
+
+[sub_resource type="Resource" id="Resource_q3rfo"]
+script = ExtResource("2_1vla4")
+metadata/_custom_type_script = "uid://3wkhnpb0tya4"
+
+[sub_resource type="Resource" id="Resource_odvgu"]
+script = ExtResource("4_ir51o")
+pitchScale = 1.7
+speedScale = 1.7
+volumeScale = 1.0
+metadata/_custom_type_script = "uid://c1gm6ob5ng08q"
+
+[sub_resource type="Resource" id="Resource_rut86"]
+script = ExtResource("3_70alm")
+Translations = PackedStringArray("This is a test replica!")
+Character = SubResource("Resource_q3rfo")
+Expression = "test"
+tone = SubResource("Resource_odvgu")
+metadata/_custom_type_script = "uid://i6nfvu3kv436"
+
+[sub_resource type="Resource" id="Resource_70alm"]
+script = ExtResource("2_1vla4")
+metadata/_custom_type_script = "uid://3wkhnpb0tya4"
+
+[sub_resource type="Resource" id="Resource_1vla4"]
+script = ExtResource("3_70alm")
+Translations = PackedStringArray("Bye!")
+Character = SubResource("Resource_70alm")
+Expression = "test"
+tone = SubResource("Resource_h14dw")
+metadata/_custom_type_script = "uid://i6nfvu3kv436"
+
+[sub_resource type="Resource" id="Resource_hhwf4"]
+script = ExtResource("5_h2ldv")
+Lines = [SubResource("Resource_wu8bp"), SubResource("Resource_rut86"), SubResource("Resource_1vla4")]
+metadata/_custom_type_script = "uid://3b1opgbrxn8r"
 
 [sub_resource type="Animation" id="Animation_406xj"]
-resource_name = "Dialouge_close"
+resource_name = "Dialogue_close"
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -13,15 +72,16 @@ tracks/0/path = NodePath("Window:offset_transform_scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.20000002, 0.8),
-"transitions": PackedFloat32Array(1, 0.34151018, 0.5358867),
+"times": PackedFloat32Array(0, 0.20000002),
+"transitions": PackedFloat32Array(0.34151018, 0.34151018),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(1, 0.015), Vector2(0, 0)]
+"values": [Vector2(1, 1), Vector2(1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_mvega"]
-resource_name = "Dialouge_open"
-length = 0.8
+resource_name = "Dialogue_open"
+length = 0.5
+step = 30.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -29,10 +89,10 @@ tracks/0/path = NodePath("Window:offset_transform_scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(-0.03333333, 0.2, 0.73333335),
-"transitions": PackedFloat32Array(0.5358867, 0.34151018, 1),
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(0.34151018, 1),
 "update": 0,
-"values": [Vector2(-0.275, 0.015), Vector2(1, 0.015), Vector2(1, 1)]
+"values": [Vector2(1, 0), Vector2(1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_sr744"]
@@ -52,21 +112,19 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_17ojo"]
 _data = {
-&"Dialouge_close": SubResource("Animation_406xj"),
-&"Dialouge_open": SubResource("Animation_mvega"),
+&"Dialogue_close": SubResource("Animation_406xj"),
+&"Dialogue_open": SubResource("Animation_mvega"),
 &"RESET": SubResource("Animation_sr744")
 }
 
 [node name="Dialouge" type="CanvasLayer" unique_id=848740949]
-script = ExtResource("1_gc7sv")
+offset = Vector2(-1, 0)
+transform = Transform2D(1, 0, 0, 1, -1, 0)
+script = ExtResource("2_mvega")
+test = SubResource("Resource_hhwf4")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=61891292]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
+[node name="dialougeUI" type="Node" parent="." unique_id=865216211]
+script = ExtResource("1_gc7sv")
 
 [node name="Window" type="NinePatchRect" parent="." unique_id=165032599]
 texture_filter = 1
@@ -120,6 +178,10 @@ texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/normal_font = ExtResource("2_gc7sv")
+theme_override_fonts/bold_font = ExtResource("2_gc7sv")
+theme_override_fonts/bold_italics_font = ExtResource("2_gc7sv")
+theme_override_fonts/italics_font = ExtResource("2_gc7sv")
+theme_override_fonts/mono_font = ExtResource("2_gc7sv")
 theme_override_font_sizes/normal_font_size = 25
 theme_override_font_sizes/bold_font_size = 25
 theme_override_font_sizes/bold_italics_font_size = 25
@@ -129,7 +191,9 @@ bbcode_enabled = true
 metadata/_edit_lock_ = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=902143878]
+stream = ExtResource("5_mvega")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=593799521]
 libraries/ = SubResource("AnimationLibrary_17ojo")
-movie_quit_on_finish = true
+
+[node name="Timer" type="Timer" parent="." unique_id=1200251433]

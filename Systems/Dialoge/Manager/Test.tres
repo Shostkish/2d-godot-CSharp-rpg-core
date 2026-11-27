@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="Dialogue" format=3 uid="uid://cqocs6yeeoydq"]
+
+[ext_resource type="Script" uid="uid://i6nfvu3kv436" path="res://Systems/Dialoge/Resources/DialogueLine.cs" id="1_lj58o"]
+[ext_resource type="Script" uid="uid://3wkhnpb0tya4" path="res://Systems/Dialoge/Resources/DialogueCharacter.cs" id="1_rut86"]
+[ext_resource type="Script" uid="uid://3b1opgbrxn8r" path="res://Systems/Dialoge/Resources/Dialogue.cs" id="2_byxdi"]
+[ext_resource type="Script" uid="uid://c1gm6ob5ng08q" path="res://Systems/Dialoge/Resources/ToneModulation.cs" id="2_rut86"]
+
+[sub_resource type="Resource" id="Resource_hvahn"]
+script = ExtResource("1_rut86")
+metadata/_custom_type_script = "uid://3wkhnpb0tya4"
+
+[sub_resource type="Resource" id="Resource_h14dw"]
+script = ExtResource("2_rut86")
+metadata/_custom_type_script = "uid://c1gm6ob5ng08q"
+
+[sub_resource type="Resource" id="Resource_wu8bp"]
+script = ExtResource("1_lj58o")
+Translations = PackedStringArray("Hello!")
+Character = SubResource("Resource_hvahn")
+Expression = "Test"
+tone = SubResource("Resource_h14dw")
+metadata/_custom_type_script = "uid://i6nfvu3kv436"
+
+[sub_resource type="Resource" id="Resource_q3rfo"]
+script = ExtResource("1_rut86")
+metadata/_custom_type_script = "uid://3wkhnpb0tya4"
+
+[sub_resource type="Resource" id="Resource_odvgu"]
+script = ExtResource("2_rut86")
+volumeScale = 1.0
+metadata/_custom_type_script = "uid://c1gm6ob5ng08q"
+
+[sub_resource type="Resource" id="Resource_rut86"]
+script = ExtResource("1_lj58o")
+Translations = PackedStringArray("Bye!")
+Character = SubResource("Resource_q3rfo")
+tone = SubResource("Resource_odvgu")
+metadata/_custom_type_script = "uid://i6nfvu3kv436"
+
+[resource]
+script = ExtResource("2_byxdi")
+Lines = [SubResource("Resource_wu8bp"), SubResource("Resource_rut86"), SubResource("Resource_rut86")]
+metadata/_custom_type_script = "uid://3b1opgbrxn8r"

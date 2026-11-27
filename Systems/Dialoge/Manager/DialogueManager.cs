@@ -1,21 +1,48 @@
 using Godot;
+using System;
+using System.Threading.Tasks;
 
 public partial class DialogueManager : Node
 {
+	public DialogueUI UI;
+	
 	[Export]
-	public int ActiveLanguageIndex = 0;
-
-	public void StartDialogue(Dialogue dialogue)
+	public Dialogue test;
+	// for test
+	
+	
+	//public enum LanguagesData {
+		//English,
+		//Example
+	//}
+	// for future translation system
+	
+	public async override void _Ready() 
 	{
-		foreach (DialogueLine line in dialogue.Lines)
-		{
-			GD.Print(line.Translations[ActiveLanguageIndex]);
+		GD.Print("Entered tree. \n ");
+		
+		UI = GetNode<DialogueUI>("dialougeUI");
+		
+		GD.Print("Starting dialogue...");
+		await StartDialogue(test); // test
+	}
+	
+	public async Task StartDialogue(Dialogue dialogue) 
+	{
+		GD.Print("Dialogue started.");
+		UI.ShowDialogue();
+		GD.Print("Showing animation played.");
+		
+		foreach (DialogueLine line in dialogue.Lines) {
+			GD.Print("Outputing text ", line);
+			await UI.TypeText(line.Translations[0], 
+			line.tone.speedScale,
+			line.tone.pitchScale, 
+			line.tone.volumeScale);
 		}
-	}
-
-	public override void _Ready()
-	{
-		Dialogue dialogue = GD.Load<Dialogue>("res://Systems/Dialoge/Database/Test.tres");
-		StartDialogue(dialogue);
-	}
+		
+		UI.HideDialogue();
+		GD.Print("finishing");
+		return;
+	} 
 }
