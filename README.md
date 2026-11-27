@@ -7,4 +7,4 @@ Cyrrent functional:
 			Intonations,
 		dialogue manager (UNFINISHED),
 
-And for the time being, it is not available for use
+Currently in development, and for the time being, it is not available for use
